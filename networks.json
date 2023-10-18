@@ -1,0 +1,8 @@
+{
+  "goerli": {
+    "TokenPresale": {
+      "address": "0xD055B32fd3136F1dCA638Cd8f4B2eAF4A10abAb3",
+      "startBlock": 0
+    }
+  }
+}

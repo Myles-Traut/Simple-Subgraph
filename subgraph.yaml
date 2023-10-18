@@ -1,0 +1,27 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TokenPresale
+    network: goerli
+    source:
+      address: "0xD055B32fd3136F1dCA638Cd8f4B2eAF4A10abAb3"
+      abi: TokenPresale
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - EthWithdrawn
+        - HubBought
+      abis:
+        - name: TokenPresale
+          file: ./abis/TokenPresale.json
+      eventHandlers:
+        - event: EthWithdrawn(uint256,uint256)
+          handler: handleEthWithdrawn
+        - event: HubBought(indexed address,indexed uint256,indexed uint256)
+          handler: handleHubBought
+      file: ./src/token-presale.ts
