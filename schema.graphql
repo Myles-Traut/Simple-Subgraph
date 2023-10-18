@@ -1,18 +1,13 @@
-type EthWithdrawn @entity(immutable: true) {
-  id: Bytes!
+type EthWithdrawn @entity {
+  id: Bytes! # msg.sender
   ethWithdrawn: BigInt! # uint256
   remainingBalance: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
 }
 
-type HubBought @entity(immutable: true) {
-  id: Bytes!
+type HubBought @entity {
+  id: Bytes! # address
   buyer: Bytes! # address
   ethSpent: BigInt! # uint256
   hubBought: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  owned: BigInt #uint256
 }
